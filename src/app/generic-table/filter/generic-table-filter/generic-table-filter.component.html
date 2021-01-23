@@ -1,0 +1,4 @@
+<select [formControl]="selectedFilter">
+    <option *ngFor="let option of filters.options" value={{option}}>{{option}}</option>
+</select>
+<button (click)=clear()>Clear</button>
