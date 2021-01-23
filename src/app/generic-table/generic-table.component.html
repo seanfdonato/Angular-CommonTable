@@ -1,0 +1,24 @@
+<label for="search">search</label>
+<input id="search" type="text" (input)="event($event)">
+<table>
+    <thead>
+        <tr>
+            <th *ngFor="let headers of tableContent.headers">
+                {{headers}}
+            </th>
+        </tr>
+        <tr>
+            <th *ngFor="let header of tableContent.headers; let i = index">
+                <generic-table-filter [filters]=getFilterOption(header,tableContent.filterOption) (selected)="filter($event)"></generic-table-filter>
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of dataShow()">
+            <td *ngFor="let headers of tableContent.headers">
+                {{row[headers] }}
+            </td>
+        </tr>
+    </tbody>
+</table>
